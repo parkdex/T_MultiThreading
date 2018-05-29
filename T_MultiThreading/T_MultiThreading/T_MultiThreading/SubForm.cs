@@ -13,17 +13,31 @@ namespace T_MultiThreading
         private Queue<int> queue = null;
         private Queue<int> writeQue = null;
 
+        // JongFeel멘토님
+        // delegate (완성된 델리게이트 종류 : Action, Func, Predicate
+        // 어떤 메소드를 직접 호출하지 않고, 메소드를 실행할 수 있는 방법 
+
+        // 왜? 굳이 호출하지 않고 뭔가 우회해서 실행해야 하는가?
+        // 메소드를 변수처럼 다뤄야 할 필요가 생김, 여기서 목적이 생김
+        // 이 메소드가 언젠가(비동기?) 호출이 되기를 기대하는 것
+        public event Action<string> action = null;
+
         public SubForm(int _subFormName, Queue<int> _queue)
         {
             InitializeComponent();
-            subFormName = _subFormName.ToString();
             chartSetting();
 
+            subFormName = _subFormName.ToString(); 
             queue = _queue;
+
             writeQue = new Queue<int>();
             WriteLog writeLog = new WriteLog(subFormName, writeQue);
-
             timer1.Start();
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+            action(this.Text);
         }
 
         private void SubForm_Load(object sender, EventArgs e)
@@ -64,6 +78,7 @@ namespace T_MultiThreading
             this.listBox1.Items.Insert(0, _value);
             this.chart1.Series[0].Points.AddY(_value);
         }
+
         
     }
 }
