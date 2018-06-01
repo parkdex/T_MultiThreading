@@ -8,7 +8,7 @@ git remote -v
 
 ### Add remote add upstream
 
-git remote add upstream <URL>
+git remote add upstream "URL"
 
 ## Update 
 
