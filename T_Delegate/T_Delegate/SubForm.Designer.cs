@@ -42,7 +42,7 @@
             this.btn_CallMom.Tag = "CALL";
             this.btn_CallMom.Text = "엄마 호출";
             this.btn_CallMom.UseVisualStyleBackColor = false;
-            this.btn_CallMom.Click += new System.EventHandler(this.btn_Click);
+            this.btn_CallMom.Click += new System.EventHandler(buttonEvents[(int)FormType.Mon]);
             // 
             // btm_MakeSubForm
             // 
@@ -53,7 +53,7 @@
             this.btm_MakeSubForm.Tag = "MAKE";
             this.btm_MakeSubForm.Text = "자식폼 생성";
             this.btm_MakeSubForm.UseVisualStyleBackColor = true;
-            this.btm_MakeSubForm.Click += new System.EventHandler(this.btn_Click);
+            this.btm_MakeSubForm.Click += new System.EventHandler(buttonEvents[(int)FormType.Son]);
             // 
             // SubForm
             // 
